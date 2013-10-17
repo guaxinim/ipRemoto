@@ -1,6 +1,8 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,9 +31,14 @@ public class Native extends HttpServlet {
 		System.out.println("######### Entrou na Servlet");
 		//HelloWorld hello = new HelloWorld();
 		//hello.carregaLib();
+		String sysout = "<br><br>######### Client Addr: " + request.getRemoteAddr() + 
+				"<br>" + "######### Client Host: " + request.getRemoteHost() +
+				"<br>" + "######### Client Host: " + request.getRemotePort() + "<br>";
 		System.out.println("######### Client Addr: " + request.getRemoteAddr());
 		System.out.println("######### Client Host: " + request.getRemoteHost());
 		System.out.println("######### Client Port: " + request.getRemotePort());
+		PrintWriter writer = response.getWriter();
+		writer.write(sysout);
 		
 	}
 
